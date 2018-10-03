@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UserLibrarySongsCVC.h
 //  AppleMusicUserLibraryPlaybackExample
 //
 //  Created by Ryan Higgins on 10/3/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface UserLibrarySongsCVC : UICollectionViewController
 
 @end
-
