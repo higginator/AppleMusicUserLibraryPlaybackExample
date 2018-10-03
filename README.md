@@ -2,6 +2,7 @@
 
 TO DO: Add developer token in initialization method of AppleMusicTokenController
 
+Use the .xcworkspace file, as cocoapods are being used
 For requesting a user's songs from their Apple Music library,
     1) Run App
     2) Authorize using left bar button item
