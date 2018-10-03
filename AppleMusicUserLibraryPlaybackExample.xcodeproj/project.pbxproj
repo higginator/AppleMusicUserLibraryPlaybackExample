@@ -24,6 +24,8 @@
 		E5CC7723216543B600CA55ED /* AppleMusicAuthorizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CC7722216543B600CA55ED /* AppleMusicAuthorizationController.m */; };
 		E5CC77282165483300CA55ED /* UserLibrarySongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CC77262165483300CA55ED /* UserLibrarySongCell.m */; };
 		E5CC77292165483300CA55ED /* UserLibrarySongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CC77272165483300CA55ED /* UserLibrarySongCell.xib */; };
+		E5CC77352165735D00CA55ED /* MusicPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CC77342165735D00CA55ED /* MusicPlayerVC.m */; };
+		E5CC77372165789E00CA55ED /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E5CC77362165789E00CA55ED /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,9 @@
 		E5CC77252165483300CA55ED /* UserLibrarySongCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLibrarySongCell.h; sourceTree = "<group>"; };
 		E5CC77262165483300CA55ED /* UserLibrarySongCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLibrarySongCell.m; sourceTree = "<group>"; };
 		E5CC77272165483300CA55ED /* UserLibrarySongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserLibrarySongCell.xib; sourceTree = "<group>"; };
+		E5CC77332165735D00CA55ED /* MusicPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicPlayerVC.h; sourceTree = "<group>"; };
+		E5CC77342165735D00CA55ED /* MusicPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerVC.m; sourceTree = "<group>"; };
+		E5CC77362165789E00CA55ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +142,7 @@
 		E5CC76D421653D0F00CA55ED = {
 			isa = PBXGroup;
 			children = (
+				E5CC77362165789E00CA55ED /* README.md */,
 				E5CC76DF21653D0F00CA55ED /* AppleMusicUserLibraryPlaybackExample */,
 				E5CC76F821653D1200CA55ED /* AppleMusicUserLibraryPlaybackExampleTests */,
 				E5CC770321653D1200CA55ED /* AppleMusicUserLibraryPlaybackExampleUITests */,
@@ -159,6 +165,8 @@
 		E5CC76DF21653D0F00CA55ED /* AppleMusicUserLibraryPlaybackExample */ = {
 			isa = PBXGroup;
 			children = (
+				E5CC77332165735D00CA55ED /* MusicPlayerVC.h */,
+				E5CC77342165735D00CA55ED /* MusicPlayerVC.m */,
 				E5CC76E021653D0F00CA55ED /* AppDelegate.h */,
 				E5CC76E121653D0F00CA55ED /* AppDelegate.m */,
 				E5CC7724216543BA00CA55ED /* Apple Music Authorization */,
@@ -334,6 +342,7 @@
 			files = (
 				E5CC76ED21653D1100CA55ED /* LaunchScreen.storyboard in Resources */,
 				E5CC76EA21653D1100CA55ED /* Assets.xcassets in Resources */,
+				E5CC77372165789E00CA55ED /* README.md in Resources */,
 				E5CC76E821653D0F00CA55ED /* Main.storyboard in Resources */,
 				E5CC77292165483300CA55ED /* UserLibrarySongCell.xib in Resources */,
 			);
@@ -421,6 +430,7 @@
 				E5CC771A21653DDA00CA55ED /* UserLibrarySongsCVC.m in Sources */,
 				E5CC771721653D2200CA55ED /* AppleMusicNetworkController.m in Sources */,
 				E5CC77282165483300CA55ED /* UserLibrarySongCell.m in Sources */,
+				E5CC77352165735D00CA55ED /* MusicPlayerVC.m in Sources */,
 				E5CC771621653D2200CA55ED /* AppleMusicTokenController.m in Sources */,
 				E5CC771D21653DE900CA55ED /* UserLibrarySongsDataSource.m in Sources */,
 				E5CC76E221653D0F00CA55ED /* AppDelegate.m in Sources */,

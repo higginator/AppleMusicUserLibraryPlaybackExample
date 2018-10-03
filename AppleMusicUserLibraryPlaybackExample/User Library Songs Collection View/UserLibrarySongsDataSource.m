@@ -9,6 +9,7 @@
 #import "UserLibrarySongsDataSource.h"
 #import "UserLibraryConstants.h"
 #import "UserLibrarySongCell.h"
+#import "MusicPlayerVC.h"
 
 @interface UserLibrarySongsDataSource ()
 
@@ -32,7 +33,7 @@
 
 - (void)updateSongsWithData:(NSDictionary *)appleMusicSongsData {
     NSArray *songsData = [appleMusicSongsData objectForKey:@"data"];
-    NSLog(@"songs data is %@", songsData);
+    //NSLog(@"songs data is %@", songsData);
     self.userSongs = songsData;
 //    NSMutableArray *appleMusicUserLibrarySongs = [[NSMutableArray alloc] init];
 //    for (NSDictionary *songData in songsData) {
@@ -57,7 +58,6 @@
     UserLibrarySongCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:UserLibrarySongCellReuseIdentifier forIndexPath:indexPath];
     
     NSDictionary *songData = [self.userSongs objectAtIndex:indexPath.row];
-    NSLog(@"song data is %@", songData);
     
     cell.backgroundColor = [UIColor blackColor];
     cell.songName.text = [[songData objectForKey:@"attributes"] objectForKey:@"name"];
@@ -74,38 +74,23 @@
 
 #pragma mark - Cell Selection
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    SNGSWPAppleMusicUserLibrarySong *appleMusicUserLibrarySong = self.userSongs[indexPath.row];
-//    NSLog(@"user library storeID is %@", appleMusicUserLibrarySong.storeID);
-//    
-//    SSMusicPlayerVC *musicPlayerVC = [[ReferenceController sharedInstance] SSMusicPlayerVC];
-//    
-//    //    // delete previous core data boombox objects
-//    //    self.boomboxSwap = nil;
-//    //    [SNGSWPCoreDataFactory deleteCoreDataSNGSWPBoomboxSwaps];
-//    //
-//    //    NSArray<SNGSWPBoomboxSong *> *boomboxSongs = [SNGSWPCoreDataFactory createBoomboxSongsWithAppleMusicSongs:songs];
-//    //    [[SNGSWPDataController dataController] saveContext];
-//    //
-//    //    [self setBoomboxSongs:boomboxSongs];
-//    
-//    NSMutableArray *songIDs = [[NSMutableArray alloc] init];
-//    [songIDs addObject:appleMusicUserLibrarySong.storeID];
-//    [musicPlayerVC.musicPlayer setQueueWithStoreIDs:songIDs];
-//    
-//    [musicPlayerVC.musicPlayer
-//     prepareToPlayWithCompletionHandler:^(NSError * _Nullable error) {
-//         if (error) {
-//             NSLog(@"error is %@", error);
-//         } else {
-//             NSLog(@"music player playing");
-//             [musicPlayerVC.musicPlayer play];
-//             NSLog(@"now playing item title: %@", musicPlayerVC.musicPlayer.nowPlayingItem.title);
-//             NSLog(@"now playing item artist: %@", musicPlayerVC.musicPlayer.nowPlayingItem.artist);
-//             NSLog(@"now playing item duration: %f", musicPlayerVC.musicPlayer.nowPlayingItem.playbackDuration);
-//             
-//         }
-//     }];
-//}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *appleMusicUserLibrarySong = self.userSongs[indexPath.row];
+    NSString *songUserLibraryID = [appleMusicUserLibrarySong objectForKey:@"id"];
+    NSLog(@"user library storeID is %@", songUserLibraryID);
+    
+    MusicPlayerVC *musicPlayerVC = [MusicPlayerVC sharedInstance];
+    
+    [musicPlayerVC.musicPlayer setQueueWithStoreIDs:@[songUserLibraryID]];
+    [musicPlayerVC.musicPlayer
+     prepareToPlayWithCompletionHandler:^(NSError * _Nullable error) {
+         if (error) {
+             NSLog(@"error is %@", error);
+         } else {
+             [musicPlayerVC.musicPlayer play];
+             NSLog(@"now playing item: %@ %@ %f", musicPlayerVC.musicPlayer.nowPlayingItem.title, musicPlayerVC.musicPlayer.nowPlayingItem.artist, musicPlayerVC.musicPlayer.nowPlayingItem.playbackDuration);
+         }
+     }];
+}
 
 @end
